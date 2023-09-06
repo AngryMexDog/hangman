@@ -20,10 +20,16 @@ while not end_of_game:
         letter = chosen_word[position]
         if letter == guess:
             display[position] = letter
+
     if guess not in chosen_word:
         print(f"You guessed {guess}, that's not in the word. You lose a life")
         lives -= 1
+        print(lives)
         if lives == 0:
-            end_of_game:True
+            end_of_game = True
             print("You lose.")
+    print(f"{' '.join(display)}")
 
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
